@@ -61,7 +61,7 @@ class testTesting extends FunSuite{
     assert(Mizejs.isAlive)
     assert(Sitejs.mana == 1)
 
-    //turpina šaut pupiņas
+    //šauj vēl mīkstākas pupiņas
     Sitejs.magAttack(Mizejs)
     assert(Sitejs.mana == 0)
     assert(Mizejs.isAlive)
