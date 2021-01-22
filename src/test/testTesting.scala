@@ -6,14 +6,17 @@ class testTesting extends FunSuite{
     val Boi: Character = new Character(45,10, 20, 30, 90, 39, 30, 4)
 
     //laimīgs dzīvo
+    //(translation: Character is alive)
     assert(Boi.isAlive)
 
     //uzkrīt lāsteka ->  >;(
+    //(translation: Character takes damage, but lives)
     Boi.takeDamage(5)
     assert(Boi.isAlive)
     assert(Boi.hp == 5)
 
     //uzkrīt flīģelis -> x_x
+    //(translation: Character takes damage and dies)
     Boi.takeDamage(5)
     assert(Boi.hp == 0)
     assert(Boi.isAlive == false)
@@ -24,6 +27,7 @@ class testTesting extends FunSuite{
     val Mizejs: Character = new Character(20,20, 10, 50, 10, 15, 30, 4)
 
     //kaujas
+    //(translation: Simulation of a physical fight)
     assert(Mizejs.isAlive)
     Sitejs.physAttack(Mizejs)
     assert(Mizejs.hp == 12)
@@ -32,6 +36,7 @@ class testTesting extends FunSuite{
     assert(Mizejs.hp == 4)
 
     //beidzot paruba
+    //(translation: Fight ends in defender dying)
     Sitejs.physAttack(Mizejs)
     assert(Mizejs.hp == -4)
     assert(Mizejs.isAlive == false)
@@ -42,6 +47,7 @@ class testTesting extends FunSuite{
     val Mizejs: Character = new Character(20,20, 10, 50, 10, 19, 30, 4)
 
     //baigi kaujas
+    //(translation: Attacker uses magical attack, wastes his mana)
     assert(Mizejs.isAlive)
     Sitejs.magAttack(Mizejs)
     assert(Mizejs.hp == 18)
@@ -54,6 +60,7 @@ class testTesting extends FunSuite{
     assert(Sitejs.mana == 16)
 
     //turpina šaut pupiņas
+    //(translation: Attacker keeps fighting, almost drained all mana)
     Sitejs.magAttack(Mizejs)
     Sitejs.magAttack(Mizejs)
     Sitejs.magAttack(Mizejs)
@@ -62,12 +69,14 @@ class testTesting extends FunSuite{
     assert(Sitejs.mana == 1)
 
     //šauj vēl mīkstākas pupiņas
+    //(translation: Character drains last bit of mana, damage decreased)
     Sitejs.magAttack(Mizejs)
     assert(Sitejs.mana == 0)
     assert(Mizejs.isAlive)
     assert(Mizejs.hp == 7)
 
     //vēlreiz pakutina, bet nesanāk
+    //(translation: Mana has been depleted, attacks do nothing)
     Sitejs.magAttack(Mizejs)
     assert(Sitejs.mana == 0)
     assert(Mizejs.isAlive)
