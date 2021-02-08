@@ -3,8 +3,8 @@ import Player.Character
 
 class testTesting extends FunSuite{
   test("a simple test of all takeDamage functions") {
-    val Boi: Character = new Character(45,10, 20, 30, 90, 39, 30, 4)
-
+    class Boi extends Character(true, 45,10, 20, 30, 90, 39, 30, 4){}
+    val Boi: Character = new Boi()
     //laimīgs dzīvo
     //(translation: Character is alive)
     assert(Boi.isAlive)
@@ -19,12 +19,15 @@ class testTesting extends FunSuite{
     //(translation: Character takes damage and dies)
     Boi.takeDamage(5)
     assert(Boi.hp == 0)
-    assert(Boi.isAlive == false)
+    assert(!Boi.isAlive)
   }
 
   test("testing physAttack") {
-    val Sitejs: Character = new Character(45,10, 20, 30, 10, 39, 30, 30)
-    val Mizejs: Character = new Character(20,20, 10, 50, 10, 15, 30, 4)
+    class Sitejs extends Character(true,45,10, 20, 30, 10, 39, 30, 30){}
+    class Mizejs extends Character(true, 20,20, 10, 50, 10, 15, 30, 4){}
+
+    val Sitejs: Character = new Sitejs()
+    val Mizejs: Character = new Mizejs()
 
     //kaujas
     //(translation: Simulation of a physical fight)
@@ -39,12 +42,15 @@ class testTesting extends FunSuite{
     //(translation: Fight ends in defender dying)
     Sitejs.physAttack(Mizejs)
     assert(Mizejs.hp == -4)
-    assert(Mizejs.isAlive == false)
+    assert(!Mizejs.isAlive)
   }
 
   test("testing magAttack") {
-    val Sitejs: Character = new Character(45,10, 20, 30, 6, 39, 32, 31)
-    val Mizejs: Character = new Character(20,20, 10, 50, 10, 19, 30, 4)
+    class Sitejs extends Character(true,45,10, 20, 30, 6, 39, 32, 31){}
+    class Mizejs extends Character(true, 20,20, 10, 50, 10, 19, 30, 4){}
+
+    val Sitejs: Character = new Sitejs()
+    val Mizejs: Character = new Mizejs()
 
     //baigi kaujas
     //(translation: Attacker uses magical attack, wastes his mana)

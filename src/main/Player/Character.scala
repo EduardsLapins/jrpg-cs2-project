@@ -1,6 +1,6 @@
 package Player
 
-class Character (var maxhp: Int, var hp: Int, var attk: Int, var deff: Int, var magattk: Int, var magdeff: Int, var maxmana: Int, var mana: Int){
+abstract class Character (var isAlly: Boolean, var maxhp: Int, var hp: Int, var attk: Int, var deff: Int, var magattk: Int, var magdeff: Int, var maxmana: Int, var mana: Int){
 
   var isAlive: Boolean = true
   var exp: Int = 0
@@ -76,6 +76,14 @@ class Character (var maxhp: Int, var hp: Int, var attk: Int, var deff: Int, var 
 
       this.exp -= 100 * (exp.toFloat / 100f).floor.toInt
     }
+  }
+
+  def battleOptions(): List[String] ={
+    var actions: List[String] = List("Locked", "Locked", "Locked", "Locked")
+    actions
+  }
+  def takeAction(action: String, cits_varonis: Character): Unit = {
+
   }
 
 }

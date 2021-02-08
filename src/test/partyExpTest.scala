@@ -5,11 +5,15 @@ import org.scalatest._
 class partyExpTest extends FunSuite {
 
   test("testing party exp") {
-    val BigMac: Character = new Character(45, 10, 20, 30, 11, 39, 30, 30)
-    val Coke: Character = new Character(45, 20, 15, 50, 10, 15, 30, 4)
+    class Sitejs extends Character(true,45, 10, 20, 30, 11, 39, 30, 30){}
+    class Mizejs extends Character(true, 45, 20, 15, 50, 10, 15, 30, 4){}
+    class Mizejs1 extends Character(true, 45, 20, 10, 50, 10, 15, 30, 4){}
 
-    val Pizza: Character = new Character(45, 10, 20, 30, 11, 39, 30, 30)
-    val Fanta: Character = new Character(45, 20, 10, 50, 10, 15, 30, 4)
+    val BigMac: Character = new Sitejs()
+    val Coke: Character = new Mizejs()
+
+    val Pizza: Character = new Sitejs()
+    val Fanta: Character = new Mizejs1()
 
     val McD: List[Character] = List(BigMac, Coke)
     val AxisP: List[Character] = List(Pizza, Fanta)
@@ -47,12 +51,16 @@ class partyExpTest extends FunSuite {
   }
 
   test("testing party but with more bloodshed") {
-    val BigMac: Character = new Character(45, 10, 20, 30, 11, 39, 30, 30)
-    val FrenchFries: Character = new Character(45, 20, 15, 50, 10, 15, 30, 4)
-    val Coke: Character = new Character(45, 20, 15, 50, 10, 15, 30, 4)
+    class Sitejs extends Character(true,45, 10, 20, 30, 11, 39, 30, 30){}
+    class Mizejs extends Character(true, 45, 20, 15, 50, 10, 15, 30, 4){}
+    class Mizejs1 extends Character(true, 45, 20, 10, 50, 10, 15, 30, 4){}
 
-    val Pizza: Character = new Character(45, 10, 20, 30, 11, 39, 30, 30)
-    val Fanta: Character = new Character(45, 20, 10, 50, 10, 15, 30, 4)
+    val BigMac: Character = new Sitejs()
+    val FrenchFries: Character = new Mizejs()
+    val Coke: Character = new Mizejs()
+
+    val Pizza: Character = new Sitejs()
+    val Fanta: Character = new Mizejs1()
 
     val McD: List[Character] = List(BigMac, Coke)
     val AxisP: List[Character] = List(Pizza, Fanta)

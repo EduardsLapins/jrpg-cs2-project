@@ -3,8 +3,11 @@ import org.scalatest._
 
 class expTest extends FunSuite{
   test("testing exp and physAttack") {
-    val Sitejs: Character = new Character(45,10, 20, 30, 10, 39, 30, 30)
-    val Mizejs: Character = new Character(100,20, 10, 50, 10, 15, 30, 4)
+    class Sitejs extends Character(true,45,10, 20, 30, 10, 39, 30, 30){}
+    class Mizejs extends Character(true, 100,20, 10, 50, 10, 15, 30, 4){}
+
+    val Sitejs: Character = new Sitejs()
+    val Mizejs: Character = new Mizejs()
 
     //kaujas
     //(translation: Simulation of a physical fight)
@@ -26,7 +29,7 @@ class expTest extends FunSuite{
     //(translation: Fight ends in defender dying)
     Sitejs.physAttack(Mizejs)
     assert(Mizejs.hp == -4)
-    assert(Mizejs.isAlive == false)
+    assert(!Mizejs.isAlive)
 
     /*+35 exp Sitejs, cuz Mizejs, technically was a lot stronger*/
     assert(Sitejs.exp == 49)
@@ -36,8 +39,11 @@ class expTest extends FunSuite{
   }
 
   test("testing exp and magAttack") {
-    val Sitejs: Character = new Character(45,10, 20, 30, 6, 39, 32, 31)
-    val Mizejs: Character = new Character(20,20, 10, 50, 10, 19, 30, 4)
+    class Sitejs extends Character(true,45,10, 20, 30, 6, 39, 32, 31){}
+    class Mizejs extends Character(true, 20,20, 10, 50, 10, 19, 30, 4){}
+
+    val Sitejs: Character = new Sitejs()
+    val Mizejs: Character = new Mizejs()
 
     //baigi kaujas
     //(translation: Attacker uses magical attack, wastes his mana)
@@ -90,8 +96,11 @@ class expTest extends FunSuite{
   }
 
   test("testing lvlup and stat incrementation") {
-    val Sitejs: Character = new Character(45,10, 20, 30, 11, 39, 30, 30)
-    val Mizejs: Character = new Character(450,8, 10, 50, 10, 15, 30, 4)
+    class Sitejs extends Character(true,45,10, 20, 30, 11, 39, 30, 30){}
+    class Mizejs extends Character(true, 450,8, 10, 50, 10, 15, 30, 4){}
+
+    val Sitejs: Character = new Sitejs()
+    val Mizejs: Character = new Mizejs()
 
     Sitejs.physAttack(Mizejs)
     //levels up a single level, -100xp points necessary for the level-up
@@ -111,8 +120,11 @@ class expTest extends FunSuite{
   }
 
   test("testing multiple lvlup and stat incrementation") {
-    val Sitejs: Character = new Character(45,10, 20, 30, 11, 39, 30, 30)
-    val Mizejs: Character = new Character(900,8, 10, 50, 10, 15, 30, 4)
+    class Sitejs extends Character(true,45,10, 20, 30, 11, 39, 30, 30){}
+    class Mizejs extends Character(true, 900,8, 10, 50, 10, 15, 30, 4){}
+
+    val Sitejs: Character = new Sitejs()
+    val Mizejs: Character = new Mizejs()
 
     Sitejs.physAttack(Mizejs)
     //levels up three times, -300xp points necessary for the level-ups
